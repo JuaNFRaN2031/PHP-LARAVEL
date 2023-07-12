@@ -16,9 +16,10 @@ class VariosMetodosRecursos extends Controller
     {
         // return 'Esto es el index';
         // return redirect('hola');
-        $info = info::where('descripcion', '=', 'Programador')->get();
+        // $info = info::where('descripcion', '=', 'Programador')->get();
         // dd($info);
-        return view('varios', compact('info'));
+        // return view('varios', compact('info'));
+        return view('varios.index');
     }
 
     /**
@@ -28,6 +29,7 @@ class VariosMetodosRecursos extends Controller
      */
     public function create()
     {
+        /*
         $info = new info;
         $info->nombre = 'María';
         $info->descripcion = '';
@@ -35,6 +37,8 @@ class VariosMetodosRecursos extends Controller
 
 
         return 'Datos guardados correctamente';
+        */
+        return view('varios.create');
     }
 
     /**
@@ -57,9 +61,12 @@ class VariosMetodosRecursos extends Controller
     public function show($id)
     {
         // $info = info::findOrFail($id);
+        /*
         $info = info::find($id);
         $info->delete();
         return 'El registro ' . $id . ' ha sido eliminado';
+        */
+        return view('varios.show', compact('id'));
     }
 
     /**
@@ -71,11 +78,14 @@ class VariosMetodosRecursos extends Controller
     public function edit($id)
     {
         // $info = info::findOrFail($id);
+        /*
         $info = info::find($id);
         $info->nombre = 'Juan Francisco Morcillo Sánchez';
         $info->descripcion = 'DATW';
         $info->save();
         return 'Datos actualizados';
+        */
+        return view('varios.edit', compact('id'));
     }
 
     /**
