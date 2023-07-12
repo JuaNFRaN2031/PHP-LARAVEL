@@ -23,16 +23,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+/*Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+*/
 
 
 
 /*************** PRUEBAS ***************/
 
-
+/*
 Route::get('hola', [HolaController::class, '__invoke']);
 
 
@@ -79,3 +79,10 @@ Route::resource('varios2', VariosMetodosRecursos::class)->except(['create', 'sto
 
 
 Route::resource('varios3', VariosMetodosRecursos::class)->only(['index', 'show'])->names(['index' => 'varios.inicio']);
+*/
+
+
+
+
+
+Route::resource('varios', VariosMetodosRecursos::class);

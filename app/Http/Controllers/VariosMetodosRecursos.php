@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\info;
 
 class VariosMetodosRecursos extends Controller
 {
@@ -14,7 +15,9 @@ class VariosMetodosRecursos extends Controller
     public function index()
     {
         // return 'Esto es el index';
-        return redirect('hola');
+        // return redirect('hola');
+        $info = info::all();
+        dd($info);
     }
 
     /**
@@ -24,7 +27,14 @@ class VariosMetodosRecursos extends Controller
      */
     public function create()
     {
-        //
+        $info = new info;
+        $info->nombre = 'Juan Francisco Morcillo';
+        $info->descripcion = 'Programador';
+        $info->save();
+
+        info::create(['nombre' => 'Juan Fran', 'descripcion' => 'Programador WEB']);
+
+        return 'Datos guardados correctamente';
     }
 
     /**
@@ -46,7 +56,10 @@ class VariosMetodosRecursos extends Controller
      */
     public function show($id)
     {
-        //
+        // $info = info::findOrFail($id);
+        $info = info::find($id);
+        $info->delete();
+        return 'El registro ' . $id . ' ha sido eliminado';
     }
 
     /**
@@ -57,7 +70,12 @@ class VariosMetodosRecursos extends Controller
      */
     public function edit($id)
     {
-        //
+        // $info = info::findOrFail($id);
+        $info = info::find($id);
+        $info->nombre = 'Juan Francisco Morcillo Sánchez';
+        $info->descripcion = 'DATW';
+        $info->save();
+        return 'Datos actualizados';
     }
 
     /**
