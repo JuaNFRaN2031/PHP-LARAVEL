@@ -16,9 +16,9 @@ class VariosMetodosRecursos extends Controller
     {
         // return 'Esto es el index';
         // return redirect('hola');
-        $info = info::all();
+        $info = info::where('descripcion', '=', 'Programador')->get();
         // dd($info);
-        return view('varios')->with('info', $info);
+        return view('varios', compact('info'));
     }
 
     /**
@@ -29,11 +29,10 @@ class VariosMetodosRecursos extends Controller
     public function create()
     {
         $info = new info;
-        $info->nombre = 'Juan Francisco Morcillo';
-        $info->descripcion = 'Programador';
+        $info->nombre = 'María';
+        $info->descripcion = '';
         $info->save();
 
-        info::create(['nombre' => 'Juan Fran', 'descripcion' => 'Programador WEB']);
 
         return 'Datos guardados correctamente';
     }
