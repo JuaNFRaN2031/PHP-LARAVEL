@@ -17,7 +17,8 @@ class VariosMetodosRecursos extends Controller
         // return 'Esto es el index';
         // return redirect('hola');
         $info = info::all();
-        dd($info);
+        // dd($info);
+        return view('varios')->with('info', $info);
     }
 
     /**
